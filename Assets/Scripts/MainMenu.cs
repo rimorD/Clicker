@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("Level", 1);
         SceneManager.LoadScene("GameplayScene");
     }
 

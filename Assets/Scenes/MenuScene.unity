@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 599923339}
   - component: {fileID: 599923341}
   - component: {fileID: 599923340}
+  - component: {fileID: 599923342}
   m_Layer: 5
   m_Name: Scoreboard Title
   m_TagString: Untagged
@@ -203,6 +204,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599923338}
   m_CullTransparentMesh: 1
+--- !u!114 &599923342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599923338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &624648350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2058,7 @@ GameObject:
   - component: {fileID: 1985237678}
   - component: {fileID: 1985237677}
   - component: {fileID: 1985237676}
+  - component: {fileID: 1985237679}
   m_Layer: 5
   m_Name: Scoreboard top
   m_TagString: Untagged
@@ -2111,6 +2128,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000061035, y: -65.07925}
   m_SizeDelta: {x: 960, y: 285}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1985237679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985237675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.2901961}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2053095076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2280,7 @@ GameObject:
   - component: {fileID: 2088167960}
   - component: {fileID: 2088167962}
   - component: {fileID: 2088167961}
+  - component: {fileID: 2088167963}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -2317,6 +2350,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088167959}
   m_CullTransparentMesh: 1
+--- !u!114 &2088167963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088167959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2100120147
 GameObject:
   m_ObjectHideFlags: 0
