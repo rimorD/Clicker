@@ -15,8 +15,9 @@ public class Boss : Character
 
         // Set stats
         maxHP = currentHP = MAX_HP_PER_LEVEL * level;
+        healthbar.value = healthbar.maxValue = maxHP;
         aD = AD_PER_LEVEL * level;
-        defense = DEFENSE_PER_LEVEL * level;
+        defense = DEFENSE_PER_LEVEL * level - 1;
         dodge = DODGE_PER_LEVEL * level;
         lifeSteal = LIFESTEAL_PER_LEVEL * level;
         AttackSpeed = Mathf.Max((float)(10 - (level * 0.25)), 0.25f); // Max attack speed is 4 per second (ouch)
@@ -34,7 +35,8 @@ public class Boss : Character
     void OnMouseDown()
     {
         asrc.PlayOneShot(playerAttack);
-        player.Attack(this);
+        int damage = player.Attack(this);
+        DamagePopup.Create(this.transform.position, damage);
     }
 
     //---------------------------------------------------------------------------------------------
@@ -42,9 +44,10 @@ public class Boss : Character
     protected override void Die()
     {
         // Victory animation
-        // TODO
+        // TODO: this sprites didnt come with death animation unfortunately
 
-        // Get to loot scene
+        // Increase level and get to loot scene
+        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 1) + 1);
         SceneManager.LoadScene("LootScene");
     }
 
@@ -52,10 +55,14 @@ public class Boss : Character
 
     IEnumerator BossAttackCoroutine()
     {
-        // Wait a determined number of seconds and attack the player
-        yield return new WaitForSeconds(AttackSpeed);
-        asrc.PlayOneShot(bossAttack);
-        Attack(player);
+        while (currentHP > 0)
+        {
+            // Wait a determined number of seconds and attack the player
+            yield return new WaitForSeconds(AttackSpeed);
+            asrc.PlayOneShot(bossAttack);
+            int damage = Attack(player);
+            DamagePopup.Create(player.transform.position, damage);
+        }
     }
 
     // Data ///////////////////////////////////////////////////////////////////////////////////////

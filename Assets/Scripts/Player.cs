@@ -13,6 +13,7 @@ public class Player : Character
         ring = new Item(0, 0, 5, 0);
 
         currentHP = maxHP = MAX_HP;
+        healthbar.value = healthbar.maxValue = MAX_HP;
     }
 
     // Update is called once per frame
@@ -26,13 +27,10 @@ public class Player : Character
     protected override void Die()
     {
         // Death animation
-        // TODO
+        // TODO: this sprites didnt come with death animation unfortunately
 
-        // Save record
-        // TODO
-
-        // Get to loot scene
-        SceneManager.LoadScene("MainMenu");
+        // Get to end scene, there we will introduce our player name to save it in records
+        SceneManager.LoadScene("EndGameScene");
     }
 
     // Data ///////////////////////////////////////////////////////////////////////////////////////

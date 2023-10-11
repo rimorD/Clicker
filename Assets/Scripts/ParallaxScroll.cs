@@ -17,7 +17,7 @@ public class ParallaxScroll : MonoBehaviour
         // new position
         transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
 
-        // Check if were out of bounds (since were only moving in one direction we dont need to check both directions but its ok)
+        // Check if were out of bounds (since were only moving in one direction we dont need to check both directions)
         if (transform.position.x >= startPosition + length)
         {
             transform.position = new Vector3(startPosition, transform.position.y, transform.position.z);

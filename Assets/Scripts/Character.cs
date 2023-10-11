@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
 {
@@ -29,9 +30,7 @@ public abstract class Character : MonoBehaviour
 
         // Substract amount from HP
         this.currentHP -= amount;
-
-        // Show damage done as a particle above me
-        // TODO
+        healthbar.value -= amount;
 
         // If less than 0 die (overriden by character)
         if(this.currentHP <= 0)
@@ -48,10 +47,10 @@ public abstract class Character : MonoBehaviour
 
     //---------------------------------------------------------------------------------------------
 
-    public void Attack(Character objective)
+    public int Attack(Character objective)
     {
         // Attack animation
-        // TODO
+        StartCoroutine("AttackAnimation");
 
         // Calculate damage
         int damageDone = objective.ReceiveDamage(AD);
@@ -62,6 +61,17 @@ public abstract class Character : MonoBehaviour
             int healing = Mathf.RoundToInt(damageDone * (LifeSteal / 100));
             this.currentHP = Mathf.Min(maxHP, currentHP + healing);
         }
+
+        return damageDone;
+    }
+    //---------------------------------------------------------------------------------------------
+
+    public IEnumerator AttackAnimation()
+    {
+        animator.SetBool("Attacking", true);
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("Attacking", false);
+
     }
 
     // Data ///////////////////////////////////////////////////////////////////////////////////////
@@ -76,4 +86,7 @@ public abstract class Character : MonoBehaviour
     protected virtual int Defense { get => defense; }
     protected virtual int Dodge { get => dodge; }
     protected virtual int LifeSteal { get => lifeSteal; }
+
+    [SerializeField] protected Slider healthbar;
+    [SerializeField] protected Animator animator;
 }
