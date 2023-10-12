@@ -8,10 +8,20 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        weapon = new Item(1, 0, 0, 0);
-        armor = new Item(0, 1, 0, 0);
-        ring = new Item(0, 0, 5, 0);
+        // Initialize equipment if null
+        if(weapon == null)
+            weapon = new Item(1, 0, 0, 0, Item.ItemType.WEAPON);
 
+        if(armor == null)
+            armor = new Item(0, 1, 0, 0, Item.ItemType.ARMOR);
+
+        if(ring == null)
+            ring = new Item(0, 0, 5, 0, Item.ItemType.RING);
+
+        if(inventory == null)
+            inventory = new List<Item>();
+
+        // Initialize HP
         currentHP = maxHP = MAX_HP;
         healthbar.value = healthbar.maxValue = MAX_HP;
     }
@@ -34,11 +44,13 @@ public class Player : Character
     }
 
     // Data ///////////////////////////////////////////////////////////////////////////////////////
-    private const int MAX_HP = 100; // Items could give the player more HP, but decided against it to make games shorter
+    private const int MAX_HP = 50; // Items could give the player more HP, but decided against it to make games shorter
 
-    private Item weapon;
-    private Item armor;
-    private Item ring;
+    public static Item weapon;
+    public static Item armor;
+    public static Item ring;
+
+    public static List<Item> inventory;
 
     protected override int AD { get => aD + weapon.AD + armor.AD + ring.AD;}
     protected override int Defense { get => defense + weapon.defense + armor.defense + ring.defense;}
