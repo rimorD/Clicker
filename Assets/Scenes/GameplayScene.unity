@@ -1015,9 +1015,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5153740684066167568, guid: 8cd61b9b895edde419fef6d77eab207d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5153740684372547222, guid: 8cd61b9b895edde419fef6d77eab207d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -350
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 5153740684832959904, guid: 8cd61b9b895edde419fef6d77eab207d, type: 3}
       propertyPath: m_Name
@@ -1334,6 +1338,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1075057875}
+    - target: {fileID: 5153740684372547222, guid: 8cd61b9b895edde419fef6d77eab207d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 5153740684832959904, guid: 8cd61b9b895edde419fef6d77eab207d, type: 3}
       propertyPath: m_Name
       value: Healthbar

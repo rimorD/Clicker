@@ -27,6 +27,8 @@ public abstract class Character : MonoBehaviour
 
         // No dodge, substract armor modifier if any
         amount -= this.Defense;
+        if (amount < 0)
+            amount = 0;
 
         // Substract amount from HP
         this.currentHP -= amount;
